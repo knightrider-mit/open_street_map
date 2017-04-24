@@ -102,19 +102,22 @@ class VizNode():
 
         # define arguments for displaying various feature types
         road_props = set(['bridge', 'highway', 'tunnel'])
+        # fargs = [(lambda(f): geodesy.props.match(f, road_props),
+        #           ColorRGBA(r=8., g=0.2, b=0.2, a=0.8),
+        #           "roads_osm"),
+        #          (lambda(f): geodesy.props.match(f, set(['building'])),
+        #           ColorRGBA(r=0., g=0.3, b=0.7, a=0.8),
+        #           "buildings_osm"),
+        #          (lambda(f): geodesy.props.match(f, set(['railway'])),
+        #           ColorRGBA(r=0., g=0.7, b=.7, a=0.8),
+        #           "railroad_osm"),
+        #          (lambda(f): geodesy.props.match(f, set(['amenity',
+        #                                                  'landuse'])),
+        #           ColorRGBA(r=0., g=1., b=0., a=0.5),
+        #           "other_osm")]
         fargs = [(lambda(f): geodesy.props.match(f, road_props),
                   ColorRGBA(r=8., g=0.2, b=0.2, a=0.8),
-                  "roads_osm"),
-                 (lambda(f): geodesy.props.match(f, set(['building'])),
-                  ColorRGBA(r=0., g=0.3, b=0.7, a=0.8),
-                  "buildings_osm"),
-                 (lambda(f): geodesy.props.match(f, set(['railway'])),
-                  ColorRGBA(r=0., g=0.7, b=.7, a=0.8),
-                  "railroad_osm"),
-                 (lambda(f): geodesy.props.match(f, set(['amenity',
-                                                         'landuse'])),
-                  ColorRGBA(r=0., g=1., b=0., a=0.5),
-                  "other_osm")]
+                  "roads_osm")]
         for args in fargs:
             self.mark_features(*args)
 
@@ -167,7 +170,7 @@ class VizNode():
                             id = index,
                             type = Marker.LINE_STRIP,
                             action = Marker.ADD,
-                            scale = Vector3(x=2.),
+                            scale = Vector3(x=5.),
                             color = color,
                             lifetime = self.marker_life)
             index += 1
