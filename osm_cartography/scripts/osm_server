@@ -83,7 +83,7 @@ class ServerNode:
             self.resp.success = True
             self.resp.status = url
             self.resp.map.header.stamp = rospy.Time.now()
-            self.resp.map.header.frame_id = '/map'
+            self.resp.map.header.frame_id = 'utm'
         return self.resp
 
     def run(self):
